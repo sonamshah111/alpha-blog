@@ -33,5 +33,14 @@ class ArticlesController < ApplicationController
     else
     	render 'edit'
     end		
-  end 	
+  end 
+
+  def destroy
+    @article = Article.find(params[:id])
+    if @article.destroy		
+  		flash[:notice] = "Article deleted successfully."
+      redirect_to articles_path
+    else
+    end	
+  end	
 end
